@@ -10,7 +10,6 @@ type Props = {
 const MobileProfileCard: React.FC<Props> = () => {
   return (
     <StyledWrapper>
-      <div className="top">💻 Profile</div>
       <div className="mid">
         <div className="wrapper">
           <Image
@@ -20,11 +19,7 @@ const MobileProfileCard: React.FC<Props> = () => {
             css={{ position: "relative" }}
             alt="profile_image"
           />
-          <div className="wrapper">
-            <div className="top">{CONFIG.profile.name}</div>
-            <div className="mid">{CONFIG.profile.role}</div>
-            <div className="btm">{CONFIG.profile.bio}</div>
-          </div>
+          <div className="top">{CONFIG.profile.name}</div>
         </div>
       </div>
     </StyledWrapper>
@@ -61,6 +56,7 @@ const StyledWrapper = styled.div`
           line-height: 1.75rem;
           font-style: italic;
           font-weight: 700;
+          font-style: bold;
         }
         > .mid {
           margin-bottom: 0.5rem;

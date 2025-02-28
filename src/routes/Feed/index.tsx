@@ -32,7 +32,7 @@ const Feed: React.FC<Props> = () => {
         <MobileProfileCard />
         <PinnedPosts q={q} />
         <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
-        <div className="tags">
+        <div className="topic">
           <TagList />
         </div>
         <FeedHeader />
@@ -96,7 +96,7 @@ const StyledWrapper = styled.div`
       grid-column: span 7 / span 7;
     }
 
-    > .tags {
+    > .topic {
       display: block;
 
       @media (min-width: 1024px) {

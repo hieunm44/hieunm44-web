@@ -3,7 +3,6 @@ import React from "react"
 import {
   AiFillLinkedin,
   AiOutlineGithub,
-  AiOutlineInstagram,
   AiOutlineMail,
 } from "react-icons/ai"
 import { CONFIG } from "site.config"
@@ -12,10 +11,17 @@ import { Emoji } from "src/components/Emoji"
 const ContactCard: React.FC = () => {
   return (
     <>
-      <StyledTitle>
-        <Emoji>💬</Emoji> Contact
-      </StyledTitle>
       <StyledWrapper>
+        {CONFIG.profile.linkedin && (
+          <a
+            href={`https://www.linkedin.com/in/${CONFIG.profile.linkedin}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            <AiFillLinkedin className="icon" />
+            <div className="name">{CONFIG.profile.linkedin}</div>
+          </a>
+        )}
         {CONFIG.profile.github && (
           <a
             href={`https://github.com/${CONFIG.profile.github}`}
@@ -23,17 +29,7 @@ const ContactCard: React.FC = () => {
             target="_blank"
           >
             <AiOutlineGithub className="icon" />
-            <div className="name">github</div>
-          </a>
-        )}
-        {CONFIG.profile.instagram && (
-          <a
-            href={`https://www.instagram.com/${CONFIG.profile.instagram}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <AiOutlineInstagram className="icon" />
-            <div className="name">instagram</div>
+            <div className="name">{CONFIG.profile.github}</div>
           </a>
         )}
         {CONFIG.profile.email && (
@@ -44,17 +40,7 @@ const ContactCard: React.FC = () => {
             css={{ overflow: "hidden" }}
           >
             <AiOutlineMail className="icon" />
-            <div className="name">email</div>
-          </a>
-        )}
-        {CONFIG.profile.linkedin && (
-          <a
-            href={`https://www.linkedin.com/in/${CONFIG.profile.linkedin}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <AiFillLinkedin className="icon" />
-            <div className="name">linkedin</div>
+            <div className="name">{CONFIG.profile.email}</div>
           </a>
         )}
       </StyledWrapper>
@@ -95,6 +81,7 @@ const StyledWrapper = styled.div`
     .name {
       font-size: 0.875rem;
       line-height: 1.25rem;
+      font-weight: bold;
     }
   }
 `

@@ -14,15 +14,15 @@ const PostDetail: React.FC<Props> = () => {
 
   if (!data) return null
 
-  const category = (data.category && data.category?.[0]) || undefined
+  const language = (data.language && data.language?.[0]) || undefined
 
   return (
     <StyledWrapper>
       <article>
-        {category && (
+        {language && (
           <div css={{ marginBottom: "0.5rem" }}>
             <Category readOnly={data.status?.[0] === "PublicOnDetail"}>
-              {category}
+              {language}
             </Category>
           </div>
         )}

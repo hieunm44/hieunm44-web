@@ -2,20 +2,13 @@ const CONFIG = {
   // profile setting (required)
   profile: {
     name: "Hieu Nguyen",
+    role: "Data - AI - Quant",
     image: "/ava.png", 
-    role: "Data Scientist / Quant Researcher",
-    bio: "I love working with data processing and building mathematical models for quantitative trading.",
     email: "scout25790@gmail.com",
     linkedin: "hieunm44",
     github: "hieunm44",
     instagram: "",
   },
-  projects: [
-    {
-      name: `hieunm44-web`,
-      href: "https://github.com/hieunm44/hieunm44-web",
-    },
-  ],
   // blog setting (required)
   blog: {
     title: "Hieu Nguyen",

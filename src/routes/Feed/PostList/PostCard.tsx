@@ -12,14 +12,14 @@ type Props = {
 }
 
 const PostCard: React.FC<Props> = ({ data }) => {
-  const category = (data.category && data.category?.[0]) || undefined
+  const language = (data.language && data.language?.[0]) || undefined
 
   return (
     <StyledWrapper href={`/${data.slug}`}>
       <article>
-        {category && (
-          <div className="category">
-            <Category>{category}</Category>
+        {language && (
+          <div className="language">
+            <Category>{language}</Category>
           </div>
         )}
         {data.thumbnail && (
@@ -32,7 +32,7 @@ const PostCard: React.FC<Props> = ({ data }) => {
             />
           </div>
         )}
-        <div data-thumb={!!data.thumbnail} data-category={!!category} className="content">
+        <div data-thumb={!!data.thumbnail} data-language={!!language} className="content">
           <header className="top">
             <h2>{data.title}</h2>
           </header>
@@ -44,12 +44,9 @@ const PostCard: React.FC<Props> = ({ data }) => {
               )}
             </div>
           </div>
-          <div className="summary">
-            <p>{data.summary}</p>
-          </div>
-          <div className="tags">
-            {data.tags &&
-              data.tags.map((tag: string, idx: number) => (
+          <div className="topic">
+            {data.topic &&
+              data.topic.map((tag: string, idx: number) => (
                 <Tag key={idx}>{tag}</Tag>
               ))}
           </div>
@@ -81,7 +78,7 @@ const StyledWrapper = styled(Link)`
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
         0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
-    > .category {
+    > .language {
       position: absolute;
       top: 1rem;
       left: 1rem;
@@ -104,7 +101,7 @@ const StyledWrapper = styled(Link)`
       &[data-thumb="false"] {
         padding-top: 3.5rem;
       }
-      &[data-category="false"] {
+      &[data-language="false"] {
         padding-top: 1.5rem;
       }
       > .top {
@@ -144,19 +141,7 @@ const StyledWrapper = styled(Link)`
           }
         }
       }
-      > .summary {
-        margin-bottom: 1rem;
-        p {
-          display: none;
-          line-height: 2rem;
-          color: ${({ theme }) => theme.colors.gray11};
-
-          @media (min-width: 768px) {
-            display: block;
-          }
-        }
-      }
-      > .tags {
+      > .topic {
         display: flex;
         gap: 0.5rem;
       }

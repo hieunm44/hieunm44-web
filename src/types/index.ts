@@ -20,14 +20,8 @@ export type TPost = {
   date: { start_date: string }
   type: TPostType[]
   slug: string
-  tags?: string[]
-  category?: string[]
-  summary?: string
-  author?: {
-    id: string
-    name: string
-    profile_photo?: string
-  }[]
+  topic?: string[]
+  language?: string[]
   title: string
   status: TPostStatus[]
   createdTime: string
@@ -41,11 +35,11 @@ export type PostDetail = TPost & {
 
 export type TPosts = TPost[]
 
-export type TTags = {
-  [tagName: string]: number
+export type TTopic = {
+  [topic: string]: number
 }
 export type TCategories = {
-  [category: string]: number
+  [language: string]: number
 }
 
 export type SchemeType = "light" | "dark"

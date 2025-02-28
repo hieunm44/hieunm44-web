@@ -1,13 +1,13 @@
-import { DEFAULT_CATEGORY } from "src/constants"
+import { DEFAULT_LANGUAGE } from "src/constants"
 import usePostsQuery from "./usePostsQuery"
 import { getAllSelectItemsFromPosts } from "src/libs/utils/notion"
 
 export const useCategoriesQuery = () => {
   const posts = usePostsQuery()
-  const categories = getAllSelectItemsFromPosts("category", posts)
+  const categories = getAllSelectItemsFromPosts("language", posts)
 
   return {
-    [DEFAULT_CATEGORY]: posts.length,
+    [DEFAULT_LANGUAGE]: posts.length,
     ...categories,
   }
 }

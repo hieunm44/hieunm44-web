@@ -2,31 +2,31 @@ import useDropdown from "src/hooks/useDropdown"
 import { useRouter } from "next/router"
 import React from "react"
 import { MdExpandMore } from "react-icons/md"
-import { DEFAULT_CATEGORY } from "src/constants"
+import { DEFAULT_LANGUAGE } from "src/constants"
 import styled from "@emotion/styled"
 import { useCategoriesQuery } from "src/hooks/useCategoriesQuery"
 
 type Props = {}
 
-const CategorySelect: React.FC<Props> = () => {
+const LanguageSelect: React.FC<Props> = () => {
   const router = useRouter()
   const data = useCategoriesQuery()
   const [dropdownRef, opened, handleOpen] = useDropdown()
 
-  const currentCategory = `${router.query.category || ``}` || DEFAULT_CATEGORY
+  const currentLanguage = `${router.query.language || ``}` || DEFAULT_LANGUAGE
 
-  const handleOptionClick = (category: string) => {
+  const handleOptionClick = (language: string) => {
     router.push({
       query: {
         ...router.query,
-        category,
+        language,
       },
     })
   }
   return (
     <StyledWrapper>
       <div ref={dropdownRef} className="wrapper" onClick={handleOpen}>
-        {currentCategory} Posts <MdExpandMore />
+        {currentLanguage} Posts <MdExpandMore />
       </div>
       {opened && (
         <div className="content">
@@ -45,7 +45,7 @@ const CategorySelect: React.FC<Props> = () => {
   )
 }
 
-export default CategorySelect
+export default LanguageSelect
 
 const StyledWrapper = styled.div`
   position: relative;

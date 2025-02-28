@@ -1,1 +1,1 @@
-export const DEFAULT_CATEGORY = "📂 All" as string
+export const DEFAULT_LANGUAGE = "📂 All" as string

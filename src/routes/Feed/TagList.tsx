@@ -2,14 +2,14 @@ import styled from "@emotion/styled"
 import { useRouter } from "next/router"
 import React from "react"
 import { Emoji } from "src/components/Emoji"
-import { useTagsQuery } from "src/hooks/useTagsQuery"
+import { useTopicQuery } from "src/hooks/useTopicQuery"
 
 type Props = {}
 
 const TagList: React.FC<Props> = () => {
   const router = useRouter()
   const currentTag = router.query.tag || undefined
-  const data = useTagsQuery()
+  const data = useTopicQuery()
 
   const handleClickTag = (value: any) => {
     // delete
@@ -35,7 +35,7 @@ const TagList: React.FC<Props> = () => {
   return (
     <StyledWrapper>
       <div className="top">
-        <Emoji>🏷️</Emoji> Tags
+        <Emoji>🏷️</Emoji> Topic
       </div>
       <div className="list">
         {Object.keys(data).map((key) => (

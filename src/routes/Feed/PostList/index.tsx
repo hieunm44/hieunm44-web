@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import PostCard from "src/routes/Feed/PostList/PostCard"
-import { DEFAULT_CATEGORY } from "src/constants"
+import { DEFAULT_LANGUAGE } from "src/constants"
 import usePostsQuery from "src/hooks/usePostsQuery"
 
 type Props = {
@@ -14,7 +14,7 @@ const PostList: React.FC<Props> = ({ q }) => {
   const [filteredPosts, setFilteredPosts] = useState(data)
 
   const currentTag = `${router.query.tag || ``}` || undefined
-  const currentCategory = `${router.query.category || ``}` || DEFAULT_CATEGORY
+  const currentlanguage = `${router.query.language || ``}` || DEFAULT_LANGUAGE
   const currentOrder = `${router.query.order || ``}` || "desc"
 
   useEffect(() => {
@@ -22,23 +22,23 @@ const PostList: React.FC<Props> = ({ q }) => {
       let newFilteredPosts = data
       // keyword
       newFilteredPosts = newFilteredPosts.filter((post) => {
-        const tagContent = post.tags ? post.tags.join(" ") : ""
-        const searchContent = post.title + post.summary + tagContent
+        const tagContent = post.topic ? post.topic.join(" ") : ""
+        const searchContent = post.title + tagContent
         return searchContent.toLowerCase().includes(q.toLowerCase())
       })
 
       // tag
       if (currentTag) {
         newFilteredPosts = newFilteredPosts.filter(
-          (post) => post && post.tags && post.tags.includes(currentTag)
+          (post) => post && post.topic && post.topic.includes(currentTag)
         )
       }
 
-      // category
-      if (currentCategory !== DEFAULT_CATEGORY) {
+      // language
+      if (currentlanguage !== DEFAULT_LANGUAGE) {
         newFilteredPosts = newFilteredPosts.filter(
           (post) =>
-            post && post.category && post.category.includes(currentCategory)
+            post && post.language && post.language.includes(currentlanguage)
         )
       }
       // order
@@ -48,7 +48,7 @@ const PostList: React.FC<Props> = ({ q }) => {
 
       return newFilteredPosts
     })
-  }, [q, currentTag, currentCategory, currentOrder, setFilteredPosts])
+  }, [q, currentTag, currentlanguage, currentOrder, setFilteredPosts])
 
   return (
     <>

@@ -1,11 +1,11 @@
-import { DEFAULT_CATEGORY } from "src/constants"
+import { DEFAULT_LANGUAGE } from "src/constants"
 import { TPost } from "src/types"
 
 interface FilterPostsParams {
   posts: TPost[]
   q: string
   tag?: string
-  category?: string
+  language?: string
   order?: string
 }
 
@@ -13,18 +13,18 @@ export function filterPosts({
   posts,
   q,
   tag = undefined,
-  category = DEFAULT_CATEGORY,
+  language = DEFAULT_LANGUAGE,
   order = "desc",
 }: FilterPostsParams): TPost[] {
   return posts
     .filter((post) => {
-      const tagContent = post.tags ? post.tags.join(" ") : ""
-      const searchContent = post.title + post.summary + tagContent
+      const tagContent = post.topic ? post.topic.join(" ") : ""
+      const searchContent = post.title + tagContent
       return (
         searchContent.toLowerCase().includes(q.toLowerCase()) &&
-        (!tag || (post.tags && post.tags.includes(tag))) &&
-        (category === DEFAULT_CATEGORY ||
-          (post.category && post.category.includes(category)))
+        (!tag || (post.topic && post.topic.includes(tag))) &&
+        (language === DEFAULT_LANGUAGE ||
+          (post.language && post.language.includes(language)))
       )
     })
     .sort((a, b) => {

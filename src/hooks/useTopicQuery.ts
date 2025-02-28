@@ -1,9 +1,9 @@
 import usePostsQuery from "./usePostsQuery"
 import { getAllSelectItemsFromPosts } from "src/libs/utils/notion"
 
-export const useTagsQuery = () => {
+export const useTopicQuery = () => {
   const posts = usePostsQuery()
-  const tags = getAllSelectItemsFromPosts("tags", posts)
+  const topic = getAllSelectItemsFromPosts("topic", posts)
 
-  return tags
+  return topic
 }

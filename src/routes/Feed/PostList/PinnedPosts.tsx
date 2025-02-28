@@ -3,7 +3,7 @@ import React, { useMemo } from "react"
 import usePostsQuery from "src/hooks/usePostsQuery"
 import styled from "@emotion/styled"
 import { filterPosts } from "./filterPosts"
-import { DEFAULT_CATEGORY } from "src/constants"
+import { DEFAULT_LANGUAGE } from "src/constants"
 
 type Props = {
   q: string
@@ -16,10 +16,10 @@ const PinnedPosts: React.FC<Props> = ({ q }) => {
     const baseFiltered = filterPosts({
       posts: data,
       q,
-      category: DEFAULT_CATEGORY,
+      language: DEFAULT_LANGUAGE,
       order: "desc",
     })
-    return baseFiltered.filter((post) => post.tags?.includes("Pinned"))
+    return baseFiltered.filter((post) => post.topic?.includes("Pinned"))
   }, [data, q])
 
   if (filteredPosts.length === 0) return null

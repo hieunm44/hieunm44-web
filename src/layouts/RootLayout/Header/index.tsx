@@ -41,6 +41,8 @@ const StyledWrapper = styled.div`
     max-width: 1120px;
     height: 3rem;
     margin: 0 auto;
+    font-size: 1.25rem;
+    font-weight: bold;
     &[data-full-width="true"] {
       @media (min-width: 768px) {
         padding-left: 6rem;
