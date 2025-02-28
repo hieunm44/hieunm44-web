@@ -2,7 +2,7 @@ const CONFIG = {
   // profile setting (required)
   profile: {
     name: "Hieu Nguyen Minh",
-    image: "./ava.jpg", 
+    image: "/ava.jpg", 
     role: "Data Scientist / Quant Researcher",
     bio: "I love working with data processing and building mathematical models for quantitative trading.",
     email: "scout25790@gmail.com",
