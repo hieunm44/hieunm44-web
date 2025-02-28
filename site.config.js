@@ -10,12 +10,12 @@ const CONFIG = {
     github: "hieunm44",
     instagram: "",
   },
-  // projects: [
-  //   {
-  //     name: `morethan-log`,
-  //     href: "https://github.com/morethanmin/morethan-log",
-  //   },
-  // ],
+  projects: [
+    {
+      name: `hieunm44-web`,
+      href: "https://github.com/hieunm44/hieunm44-web",
+    },
+  ],
   // blog setting (required)
   blog: {
     title: "Hieu Nguyen",
