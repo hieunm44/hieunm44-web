@@ -24,12 +24,8 @@ const ProfileCard: React.FC<Props> = () => {
 export default ProfileCard
 
 const StyledWrapper = styled.div`
-  > .title {
-    padding: 0.25rem;
-    margin-bottom: 0.75rem;
-  }
   > .content {
-    margin-bottom: 1.75rem;
+    margin-bottom: 0.5rem;
     border-radius: 1rem;
     width: 100%;
     background-color: ${({ theme }) =>
@@ -51,7 +47,6 @@ const StyledWrapper = styled.div`
     }
     .mid {
       display: flex;
-      padding: 0.25rem;
       flex-direction: column;
       align-items: center;
       .name {
@@ -60,7 +55,6 @@ const StyledWrapper = styled.div`
         font-weight: bold;
       }
       .role {
-        margin-bottom: 0.25rem;
         font-size: 0.875rem;
         line-height: 1.25rem;
         font-weight: bold;
