@@ -2,7 +2,7 @@ const CONFIG = {
   // profile setting (required)
   profile: {
     name: "Hieu Nguyen",
-    role: "Data - AI - Quant",
+    role: "AI and Data Science",
     image: "/ava.png", 
     email: "scout25790@gmail.com",
     linkedin: "hieunm44",
