@@ -2,7 +2,7 @@ import React from "react"
 import PostHeader from "./PostHeader"
 import Footer from "./PostFooter"
 import CommentBox from "./CommentBox"
-import Category from "src/components/Category"
+import Language from "src/components/Language"
 import styled from "@emotion/styled"
 import NotionRenderer from "../components/NotionRenderer"
 import usePostQuery from "src/hooks/usePostQuery"
@@ -21,9 +21,9 @@ const PostDetail: React.FC<Props> = () => {
       <article>
         {language && (
           <div css={{ marginBottom: "0.5rem" }}>
-            <Category readOnly={data.status?.[0] === "PublicOnDetail"}>
+            <Language readOnly={data.status?.[0] === "PublicOnDetail"}>
               {language}
-            </Category>
+            </Language>
           </div>
         )}
         {data.type[0] === "Post" && <PostHeader data={data} />}

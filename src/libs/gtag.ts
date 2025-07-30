@@ -12,18 +12,18 @@ export const pageview = (url: any) => {
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const event = ({
   action,
-  category,
+  language,
   label,
   value,
 }: {
   action: any
-  category: any
+  language: any
   label: any
   value: any
 }) => {
   if (typeof window !== "object") return
   window.gtag("event", action, {
-    event_category: category,
+    event_language: language,
     event_label: label,
     value: value,
   })

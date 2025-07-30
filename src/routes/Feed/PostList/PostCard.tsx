@@ -4,7 +4,7 @@ import { formatDate } from "src/libs/utils"
 import Tag from "../../../components/Tag"
 import { TPost } from "../../../types"
 import Image from "next/image"
-import Category from "../../../components/Category"
+import Language from "../../../components/Language"
 import styled from "@emotion/styled"
 
 type Props = {
@@ -19,7 +19,7 @@ const PostCard: React.FC<Props> = ({ data }) => {
       <article>
         {language && (
           <div className="language">
-            <Category>{language}</Category>
+            <Language>{language}</Language>
           </div>
         )}
         {data.thumbnail && (

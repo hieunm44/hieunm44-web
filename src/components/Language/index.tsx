@@ -22,12 +22,12 @@ type Props = {
   readOnly?: boolean
 }
 
-const Category: React.FC<Props> = ({ readOnly = false, children }) => {
+const Language: React.FC<Props> = ({ readOnly = false, children }) => {
   const router = useRouter()
 
   const handleClick = (value: string) => {
     if (readOnly) return
-    router.push(`/?category=${value}`)
+    router.push(`/?language=${value}`)
   }
   return (
     <StyledWrapper
@@ -42,7 +42,7 @@ const Category: React.FC<Props> = ({ readOnly = false, children }) => {
   )
 }
 
-export default Category
+export default Language
 
 const StyledWrapper = styled.div`
   padding-top: 0.25rem;
